@@ -8,17 +8,255 @@
   <meta name="CocoaVersion" content="2575.6">
   <style type="text/css">
     p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
   </style>
 </head>
 <body>
 <p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
 <p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Davan’s Site&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="utf-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Davan — Music × Fashion&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Davan — an interactive portfolio and journal across music and fashion."/&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link rel="preconnect" href="https://fonts.gstatic.com" crossorigin&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Pick two contrasting fonts --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#0b0b0c; --fg:#f2f2f2; --muted:#a1a1aa; --accent:#6ee7ff; --accent-2:#ff76e1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--card:#141416; --stroke:rgba(255,255,255,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>[data-theme="light"]{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>--bg:#fafafa; --fg:#0b0b0c; --muted:#4b5563; --accent:#0ea5e9; --accent-2:#ef4444; --card:#ffffff; --stroke:rgba(0,0,0,0.08);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>html,body{height:100%}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin:0; background:radial-gradient(1200px 800px at 80% -10%, rgba(110,231,255,0.12), transparent 60%),</p>
+<p class="p1"><span class="Apple-converted-space">              </span>radial-gradient(1000px 700px at 10% 110%, rgba(255,118,225,0.10), transparent 60%), var(--bg);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color:var(--fg); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.6; overflow-x:hidden;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>a{color:inherit; text-decoration:none}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container{width:min(1100px, 92vw); margin-inline:auto}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; inset:16px 16px auto; display:flex; gap:10px; align-items:center; z-index:50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background:color-mix(in oklab, var(--bg), transparent 40%);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(10px); border:1px solid var(--stroke); border-radius:999px; padding:8px 12px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav a{padding:6px 10px; border-radius:999px; border:1px solid transparent; font-weight:600}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.nav a:hover{border-color:var(--stroke)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.chip{padding:6px 10px; border-radius:999px; border:1px solid var(--stroke); font-size:12px; color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn{padding:8px 12px; border-radius:10px; border:1px solid var(--stroke); background:var(--card); cursor:pointer; color:var(--fg);}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.btn:hover{transform:translateY(-1px)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* HERO */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.hero{min-height:100svh; display:grid; place-items:center; position:relative}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.title{font-family:"Space Grotesk", system-ui; font-size: clamp(40px, 9vw, 120px); line-height:0.92; text-transform:uppercase; letter-spacing:-0.02em; text-align:center}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.title .stroke{color:transparent; -webkit-text-stroke: 1px color-mix(in oklab, var(--fg), transparent 40%)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.title .accent{background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.marquee{position:absolute; left:0; right:0; bottom:40px; overflow:hidden; opacity:.8}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.marquee-track{display:flex; white-space:nowrap; gap:40px; will-change:transform; animation:scroll 20s linear infinite}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.marquee-track span{opacity:.7}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cursor{position:fixed; width:14px; height:14px; border-radius:50%; background:var(--accent); mix-blend-mode:screen; pointer-events:none; z-index:100}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* SECTIONS */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>section{padding:80px 0; border-top:1px solid var(--stroke)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>h2{font-family:"Space Grotesk"; font-size: clamp(26px, 4.2vw, 48px); margin:0 0 18px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>p.lead{color:var(--muted); max-width:65ch}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* GRID CARDS */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px; margin-top:26px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card{position:relative; background:var(--card); border:1px solid var(--stroke); border-radius:16px; overflow:hidden}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card img{width:100%; height:260px; object-fit:cover; display:block; filter:saturate(0.85) contrast(1.05)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card .meta{display:flex; justify-content:space-between; align-items:center; padding:10px 12px; font-size:14px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.tag{border:1px solid var(--stroke); padding:2px 8px; border-radius:999px; font-size:12px; color:var(--muted)}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card:hover img{transform:scale(1.02); filter:saturate(1) contrast(1.1); transition:transform .4s ease, filter .4s ease}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* JOURNAL */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.post{background:var(--card); border:1px solid var(--stroke); border-radius:16px; padding:18px;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.post h3{margin:0 0 6px}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.post time{color:var(--muted); font-size:12px}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* FOOTER */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>footer{border-top:1px solid var(--stroke); padding:40px 0 80px; color:var(--muted)}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* DRAGGABLE STICKERS */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sticker{position:fixed; inset:auto auto 20% 5%; width:min(30vw,220px); rotate:-6deg; filter:drop-shadow(0 10px 20px rgba(0,0,0,.25)); cursor:grab; z-index:40;}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sticker:active{cursor:grabbing}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.sticker img{width:100%; height:auto; display:block}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>/* Responsive fix for very small screens */</p>
+<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width:560px){ .nav{inset:10px} .marquee{bottom:20px} }</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
 <p class="p1">&lt;/head&gt;</p>
 <p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;Hello World&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;p&gt;This is my first GitHub Pages site!&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Floating nav --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;nav class="nav" aria-label="Primary"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#music" class="chip"&gt;Music&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#fashion" class="chip"&gt;Fashion&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;a href="#journal" class="chip"&gt;Journal&lt;/a&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="themeBtn" class="btn" aria-label="Toggle theme"&gt;☾ / ☼&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button id="soundBtn" class="btn" aria-label="Toggle soundtrack"&gt;▶︎ Sound&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/nav&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Draggable sticker (replace image URL with your PNG) --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="sticker" id="sticker" title="drag me"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;img src="https://images.unsplash.com/photo-1605731414532-6b26976cc153?q=80&amp;w=1200&amp;auto=format&amp;fit=crop" alt="Davan sticker"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Custom cursor dot --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="cursor" id="cursor"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Hero --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="hero container" id="top"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="chip"&gt;Independent • Music × Fashion • Journal&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h1 class="title" aria-label="Davan"&gt;DA&lt;span class="stroke"&gt;V&lt;/span&gt;&lt;span class="accent"&gt;AN&lt;/span&gt;&lt;/h1&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="lead"&gt;A living, interactive sketchbook of sound and style. Use &lt;strong&gt;M&lt;/strong&gt;, &lt;strong&gt;F&lt;/strong&gt;, &lt;strong&gt;J&lt;/strong&gt; keys to jump between sections.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="marquee" aria-hidden="true"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="marquee-track"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;• NEW • SINGLE • LOOKBOOK • ESSAYS • PLAYLISTS •&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;span&gt;• NEW • SINGLE • LOOKBOOK • ESSAYS • PLAYLISTS •&lt;/span&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Music --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="music"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Music&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="lead"&gt;Stream my latest tracks and sketches. Each drop gets a short blurb about mood, gear, and influences.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;!-- Replace iframe with your Spotify/YouTube embed URL --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="studio"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="meta"&gt;&lt;span&gt;“Night Drive”&lt;/span&gt;&lt;span class="tag"&gt;single&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="mixing"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="meta"&gt;&lt;span&gt;“Fakemink”&lt;/span&gt;&lt;span class="tag"&gt;demo&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="guitar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="meta"&gt;&lt;span&gt;“Hysteric Glamour”&lt;/span&gt;&lt;span class="tag"&gt;instrumental&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div style="margin-top:24px; border:1px solid var(--stroke); border-radius:16px; overflow:hidden; background:var(--card)"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;iframe style="width:100%; height:352px; border:0; display:block" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX2sUQwD7tbmL" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"&gt;&lt;/iframe&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Fashion --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="fashion"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Fashion&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="lead"&gt;Lookbooks, thrift hauls, and stage fits. Hover to feel the texture; click to open details (coming soon).&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;figure class="card"&gt;&lt;img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="fit 1"&gt;&lt;figcaption class="meta"&gt;&lt;span&gt;New Rock + Vintage Tee&lt;/span&gt;&lt;span class="tag"&gt;look&lt;/span&gt;&lt;/figcaption&gt;&lt;/figure&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;figure class="card"&gt;&lt;img src="https://images.unsplash.com/photo-1520974735194-5f2d0600d990?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="fit 2"&gt;&lt;figcaption class="meta"&gt;&lt;span&gt;Thrifted Denim&lt;/span&gt;&lt;span class="tag"&gt;haul&lt;/span&gt;&lt;/figcaption&gt;&lt;/figure&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;figure class="card"&gt;&lt;img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="fit 3"&gt;&lt;figcaption class="meta"&gt;&lt;span&gt;Statement Outerwear&lt;/span&gt;&lt;span class="tag"&gt;look&lt;/span&gt;&lt;/figcaption&gt;&lt;/figure&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;figure class="card"&gt;&lt;img src="https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&amp;w=1600&amp;auto=format&amp;fit=crop" alt="fit 4"&gt;&lt;figcaption class="meta"&gt;&lt;span&gt;Accessories Study&lt;/span&gt;&lt;span class="tag"&gt;details&lt;/span&gt;&lt;/figcaption&gt;&lt;/figure&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Journal --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;section id="journal"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;h2&gt;Journal&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p class="lead"&gt;Short entries mixing process notes, setlists, and style inspo. (These can be AI‑assisted—drop text in and publish.)&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="post"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;On singing with less air&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;time datetime="2025-09-15"&gt;Sep 15&lt;/time&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Practicing breath management: smaller inhale, place tone forward. Reference tracks: Clairo “Bags”, Faye Webster “Kingston”.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="post"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Outfit notes — muted vs gloss&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;time datetime="2025-09-10"&gt;Sep 10&lt;/time&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Mixing matte denim with patent accents. Trying a steel chain with soft knit to balance texture.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="post"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Bassline ideas from “My Kind of Woman”&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;time datetime="2025-09-09"&gt;Sep 9&lt;/time&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;Slow swing eighths, chorus adds fifths. Translate to Jazzmaster for a washed chorus pad.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/section&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="grid" style="grid-template-columns:repeat(auto-fit, minmax(220px,1fr));"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Contact&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="lead"&gt;DMs open — &lt;a href="https://instagram.com/" target="_blank" rel="noopener"&gt;Instagram&lt;/a&gt; · &lt;a href="https://youtube.com/" target="_blank" rel="noopener"&gt;YouTube&lt;/a&gt; · &lt;a href="mailto:hello@example.com"&gt;Email&lt;/a&gt;&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Now&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="lead"&gt;Writing an EP, building a lookbook, and playing with chorus‑soaked guitars.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;Colophon&lt;/strong&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;p class="lead"&gt;Built on GitHub Pages. Type — Space Grotesk &amp; Inter. Colors shift with theme.&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Simple soundtrack (royalty‑free placeholder). Replace src with your own MP3 link in the repo --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;audio id="bgAudio" loop src="https://cdn.pixabay.com/download/audio/2021/09/21/audio_4d7f4a4b2b.mp3?filename=lofi-study-112191.mp3" crossorigin="anonymous"&gt;&lt;/audio&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>// THEME TOGGLE</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const themeBtn = document.getElementById('themeBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const soundBtn = document.getElementById('soundBtn');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const audio = document.getElementById('bgAudio');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const saved = localStorage.getItem('theme');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if(saved){ document.documentElement.dataset.theme = saved; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>else if(!prefersDark){ document.documentElement.dataset.theme = 'light'; }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>themeBtn.addEventListener('click', ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const t = document.documentElement.dataset.theme === 'light' ? '' : 'light';</p>
+<p class="p1"><span class="Apple-converted-space">      </span>document.documentElement.dataset.theme = t;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(t) localStorage.setItem('theme', t); else localStorage.removeItem('theme');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// SOUND TOGGLE</p>
+<p class="p1"><span class="Apple-converted-space">    </span>let playing=false; soundBtn.addEventListener('click', async ()=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>try{ if(!playing){ await audio.play(); soundBtn.textContent='❚❚ Sound'; playing=true; } else { audio.pause(); soundBtn.textContent='▶︎ Sound'; playing=false; } }</p>
+<p class="p1"><span class="Apple-converted-space">      </span>catch(e){ console.log(e); }</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// KEYBOARD SHORTCUTS (M / F / J)</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const jump = id =&gt; document.getElementById(id).scrollIntoView({behavior:'smooth'});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('keydown', e=&gt;{</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(e.key.toLowerCase()==='m') jump('music');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(e.key.toLowerCase()==='f') jump('fashion');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(e.key.toLowerCase()==='j') jump('journal');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>if(e.key.toLowerCase()==='t') jump('top');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// CUSTOM CURSOR DOT</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const c = document.getElementById('cursor');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>window.addEventListener('pointermove', e=&gt;{ c.style.transform = `translate(${e.clientX-7}px, ${e.clientY-7}px)`; });</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>// DRAGGABLE STICKER</p>
+<p class="p1"><span class="Apple-converted-space">    </span>(function(){</p>
+<p class="p1"><span class="Apple-converted-space">      </span>const el = document.getElementById('sticker');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>let offX=0, offY=0, dragging=false;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>el.addEventListener('pointerdown', (e)=&gt;{ dragging=true; el.setPointerCapture(e.pointerId); offX=e.clientX - el.offsetLeft; offY=e.clientY - el.offsetTop; });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.addEventListener('pointermove', (e)=&gt;{ if(!dragging) return; el.style.left = (e.clientX - offX) + 'px'; el.style.top = (e.clientY - offY) + 'px'; });</p>
+<p class="p1"><span class="Apple-converted-space">      </span>window.addEventListener('pointerup', ()=&gt; dragging=false);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>})();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
 <p class="p1">&lt;/body&gt;</p>
 <p class="p1">&lt;/html&gt;</p>
 </body>
