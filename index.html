@@ -14,35 +14,41 @@
   <meta property="og:url" content="https://d4van.github.io/davan/" />
   <meta property="og:image" content="https://d4van.github.io/davan/og-cover.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- Favicon (replace with your own) -->
   <link rel="icon" href="/favicon.ico" />
 
   <style>
-    :root{
-      --bg:#0b0b0c; --fg:#f2f2f2; --muted:#a1a1aa; --accent:#6ee7ff; --accent-2:#ff76e1; --card:#141416; --stroke:rgba(255,255,255,0.08);
-    }
-    [data-theme="light"]{
-      --bg:#fafafa; --fg:#0b0b0c; --muted:#4b5563; --accent:#0ea5e9; --accent-2:#ef4444; --card:#ffffff; --stroke:rgba(0,0,0,0.08);
-    }
+    :root{ --bg:#0b0b0c; --fg:#f2f2f2; --muted:#a1a1aa; --accent:#6ee7ff; --accent-2:#ff76e1; --card:#141416; --stroke:rgba(255,255,255,0.08); }
+    [data-theme="light"]{ --bg:#fafafa; --fg:#0b0b0c; --muted:#4b5563; --accent:#0ea5e9; --accent-2:#ef4444; --card:#ffffff; --stroke:rgba(0,0,0,0.08); }
     *{box-sizing:border-box}
     html:focus-within{scroll-behavior:smooth}
-    @media (prefers-reduced-motion: reduce){ html:focus-within{scroll-behavior:auto} *{animation:none!important; transition:none!important}}
+    @media (prefers-reduced-motion: reduce){ html:focus-within{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
     html,body{height:100%}
-    body{
-      margin:0; background:radial-gradient(1200px 800px at 80% -10%, rgba(110,231,255,0.12), transparent 60%),
-              radial-gradient(1000px 700px at 10% 110%, rgba(255,118,225,0.10), transparent 60%), var(--bg);
-      color:var(--fg); font-family:"MingLiU", "PMingLiU", serif;
-      line-height:1.6; overflow-x:hidden;
-    }
+    body{ margin:0; background:radial-gradient(1200px 800px at 80% -10%, rgba(110,231,255,0.12), transparent 60%), radial-gradient(1000px 700px at 10% 110%, rgba(255,118,225,0.10), transparent 60%), var(--bg); color:var(--fg); font-family:"MingLiU","PMingLiU",serif; line-height:1.6; overflow-x:hidden;}
     a{color:inherit; text-decoration:none}
     .container{width:min(1100px, 92vw); margin-inline:auto}
     .skip{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
     .skip:focus{left:16px; top:16px; width:auto; height:auto; padding:8px 10px; background:var(--card); border:1px solid var(--stroke); border-radius:10px; z-index:999}
 
+    /* --- TITLE SCREEN (marquee stripes + cursor parallax) --- */
+    .title-screen{position:relative; height:100svh; overflow:hidden; background:#000; color:#fff}
+    .ts-grid{position:absolute; inset:0; display:grid; grid-template-columns:repeat(12, 1fr); gap:0; transform:translate3d(0,0,0); will-change:transform}
+    .ts-col{position:relative; overflow:hidden; border-left:2px solid rgba(255,255,255,.08); border-right:2px solid rgba(255,255,255,.08)}
+    .ts-track{position:absolute; left:0; right:0; top:-100%}
+    .ts-line{font-weight:700; font-size:clamp(26px,4.6vw,64px); line-height:1.12; text-transform:lowercase; letter-spacing:.02em; padding:.18em 0; color:#eaeaea}
+    .ts-line b{font-weight:900; color:#fff}
+    .ts-line i{font-style:normal; opacity:.92}
+    .ts-col:nth-child(odd) .ts-track{animation:ts-down 14s linear infinite}
+    .ts-col:nth-child(even) .ts-track{animation:ts-up 16s linear infinite}
+    @keyframes ts-down{from{transform:translateY(-50%)} to{transform:translateY(0%)} }
+    @keyframes ts-up{from{transform:translateY(0%)} to{transform:translateY(-50%)} }
+    .ts-reflect{position:absolute; inset:auto 0 0 0; height:16svh; background:linear-gradient(to top, rgba(255,255,255,.12), rgba(255,255,255,0)); mix-blend-mode:overlay; pointer-events:none}
+    .ts-center{position:absolute; inset:0; display:grid; place-items:center; text-align:center; pointer-events:none}
+    .ts-logo{font-size:clamp(40px,8vw,120px); letter-spacing:.02em; text-transform:uppercase; text-shadow:0 6px 30px rgba(0,0,0,.65)}
+    .ts-cta{position:absolute; bottom:28px; left:50%; transform:translateX(-50%); background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.18); border-radius:999px; padding:8px 14px; font-size:14px; cursor:pointer; pointer-events:auto; backdrop-filter:blur(6px)}
+    .ts-cta:hover{background:rgba(255,255,255,.14)}
+
     /* NAV */
-    .nav{position:fixed; inset:16px 16px auto; display:flex; gap:10px; align-items:center; z-index:50;
-      background:color-mix(in oklab, var(--bg), transparent 40%); backdrop-filter: blur(10px); border:1px solid var(--stroke); border-radius:999px; padding:8px 12px;}
+    .nav{position:fixed; inset:16px 16px auto; display:flex; gap:10px; align-items:center; z-index:50; background:color-mix(in oklab, var(--bg), transparent 40%); backdrop-filter: blur(10px); border:1px solid var(--stroke); border-radius:999px; padding:8px 12px}
     .brand{letter-spacing:.04em; font-weight:700}
     .nav a{padding:6px 10px; border-radius:999px; border:1px solid transparent; font-weight:600}
     .nav a:hover{border-color:var(--stroke)}
@@ -58,7 +64,7 @@
     .marquee{position:absolute; left:0; right:0; bottom:40px; overflow:hidden; opacity:.85}
     .marquee-track{display:flex; white-space:nowrap; gap:40px; will-change:transform; animation:scroll 20s linear infinite}
     .marquee-track span{opacity:.7}
-    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+    @keyframes scroll{from{transform:translateX(0)} to{transform:translateX(-50%)} }
     .cursor{position:fixed; width:14px; height:14px; border-radius:50%; background:var(--accent); mix-blend-mode:screen; pointer-events:none; z-index:100}
 
     /* SECTIONS */
@@ -92,6 +98,16 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+
+  <!-- FULLSCREEN TITLE STRIPES -->
+  <section class="title-screen" id="title">
+    <div class="ts-grid" id="tsGrid" aria-hidden="true"></div>
+    <div class="ts-reflect" aria-hidden="true"></div>
+    <div class="ts-center">
+      <div class="ts-logo">early life crisis.</div>
+      <button class="ts-cta" id="enterBtn" aria-label="Enter site">Enter ↓</button>
+    </div>
+  </section>
 
   <!-- Floating nav -->
   <nav class="nav" aria-label="Primary">
@@ -170,7 +186,7 @@
     <section id="journal" aria-labelledby="h-journal">
       <div class="container">
         <h2 id="h-journal">Journal</h2>
-        <p class="lead">Short entries mixing process notes, setlists, and style inspo. (These can be AI‑assisted—drop text in and publish.)</p>
+        <p class="lead">Short entries mixing process notes, setlists, and style inspo. (These can be AI-assisted—drop text in and publish.)</p>
         <div class="grid">
           <article class="post" aria-labelledby="p1">
             <h3 id="p1">On singing with less air</h3>
@@ -211,4 +227,76 @@
     </div>
   </footer>
 
-  <!-- Simple soundtrack (replace src with your own MP3 link in
+  <!-- Soundtrack placeholder (replace with your own MP3 in repo) -->
+  <audio id="bgAudio" loop src="https://cdn.pixabay.com/download/audio/2021/09/21/audio_4d7f4a4b2b.mp3?filename=lofi-study-112191.mp3" crossorigin="anonymous"></audio>
+
+  <script>
+    // TITLE STRIPES: build columns + rows and parallax to cursor
+    (function(){
+      const grid = document.getElementById('tsGrid'); if(!grid) return;
+      const COLS = 12, ROWS = 16; // density
+      const lineHTML = () => `<div class='ts-line'><b>early</b> <i>life</i> <b>crisis.</b></div>`;
+      for(let c=0;c<COLS;c++){
+        const col = document.createElement('div'); col.className='ts-col';
+        const track = document.createElement('div'); track.className='ts-track';
+        track.innerHTML = Array.from({length:ROWS}).map(lineHTML).join('');
+        col.appendChild(track); grid.appendChild(col);
+      }
+      // Parallax
+      const lerp=(a,b,t)=>a+(b-a)*t; let tx=0,ty=0, cx=0,cy=0;
+      window.addEventListener('pointermove', e=>{ const r = grid.getBoundingClientRect(); cx=((e.clientX-r.width/2)/r.width)*8; cy=((e.clientY-r.height/2)/r.height)*-8; });
+      (function raf(){ tx=lerp(tx,cx,0.06); ty=lerp(ty,cy,0.06); grid.style.transform=`translate3d(${tx}px, ${ty}px, 0)`; requestAnimationFrame(raf) })();
+      // Enter → scroll into site
+      const btn=document.getElementById('enterBtn'); if(btn){ btn.addEventListener('click', ()=> document.getElementById('top').scrollIntoView({behavior:'smooth'})); }
+    })();
+
+    // THEME TOGGLE
+    const themeBtn = document.getElementById('themeBtn');
+    const soundBtn = document.getElementById('soundBtn');
+    const audio = document.getElementById('bgAudio');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const saved = localStorage.getItem('theme');
+    if(saved){ document.documentElement.dataset.theme = saved; }
+    else if(!prefersDark){ document.documentElement.dataset.theme = 'light'; }
+    themeBtn.addEventListener('click', ()=>{
+      const t = document.documentElement.dataset.theme === 'light' ? '' : 'light';
+      document.documentElement.dataset.theme = t;
+      if(t) localStorage.setItem('theme', t); else localStorage.removeItem('theme');
+    });
+
+    // SOUND TOGGLE
+    let playing=false; soundBtn.addEventListener('click', async ()=>{
+      try{ if(!playing){ await audio.play(); soundBtn.textContent='❚❚ Sound'; playing=true; } else { audio.pause(); soundBtn.textContent='▶︎ Sound'; playing=false; } }
+      catch(e){ console.log(e); }
+    });
+
+    // KEYBOARD SHORTCUTS (M / F / J / T)
+    const jump = id => document.getElementById(id).scrollIntoView({behavior:'smooth'});
+    window.addEventListener('keydown', e=>{
+      if(['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
+      if(e.key.toLowerCase()==='m') jump('music');
+      if(e.key.toLowerCase()==='f') jump('fashion');
+      if(e.key.toLowerCase()==='j') jump('journal');
+      if(e.key.toLowerCase()==='t') jump('top');
+    });
+
+    // CUSTOM CURSOR DOT
+    const c = document.getElementById('cursor');
+    window.addEventListener('pointermove', e=>{ c.style.transform = `translate(${e.clientX-7}px, ${e.clientY-7}px)`; });
+
+    // DRAGGABLE STICKER
+    (function(){
+      const el = document.getElementById('sticker');
+      let offX=0, offY=0, dragging=false;
+      el.addEventListener('pointerdown', (e)=>{ dragging=true; el.setPointerCapture(e.pointerId); offX=e.clientX - el.offsetLeft; offY=e.clientY - el.offsetTop; });
+      window.addEventListener('pointermove', (e)=>{ if(!dragging) return; el.style.left = (e.clientX - offX) + 'px'; el.style.top = (e.clientY - offY) + 'px'; });
+      window.addEventListener('pointerup', ()=> dragging=false);
+    })();
+  </script>
+
+  <!-- JSON-LD (basic) -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Davan","url":"https://d4van.github.io/davan/","sameAs":["https://instagram.com/","https://youtube.com/"],"jobTitle":"Musician","knowsAbout":["indie pop","lookbooks","thrifting"]}
+  </script>
+</body>
+</html>
